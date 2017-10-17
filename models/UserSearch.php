@@ -93,8 +93,9 @@ class UserSearch extends Model
             return $dataProvider;
         }
 
-        $table_name = $query->modelClass::tableName();
-
+        //$table_name = $query->modelClass::tableName();
+        $table_name = $query->modelClass()->tableName(); //my setting
+        
         if ($this->created_at !== null) {
             $date = strtotime($this->created_at);
             $query->andFilterWhere(['between', $table_name . '.created_at', $date, $date + 3600 * 24]);
