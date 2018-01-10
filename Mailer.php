@@ -27,7 +27,7 @@ class Mailer extends Component
     public $viewPath = '@dektrium/user/views/mail';
 
     /** @var string|array Default: `Yii::$app->params['adminEmail']` OR `no-reply@example.com` */
-    public $sender;
+    public $sender =  Yii::$app->globalSetting->getOptions('email_sender');
 
     /** @var \yii\mail\BaseMailer Default: `Yii::$app->mailer` */
     public $mailerComponent;
